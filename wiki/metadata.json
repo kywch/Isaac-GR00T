@@ -1,0 +1,33 @@
+{
+    "generation_info": {
+        "timestamp": "2026-03-02T16:34:38.393054",
+        "main_model": "",
+        "generator_version": "1.0.1",
+        "repo_path": "/workspace/rlwrld/Isaac-GR00T",
+        "commit_id": null
+    },
+    "statistics": {
+        "total_components": 293,
+        "leaf_nodes": 111,
+        "max_depth": 2
+    },
+    "files_generated": [
+        "overview.md",
+        "module_tree.json",
+        "first_module_tree.json",
+        "gr00t_n1d6_model.md",
+        "nvidia_eagle_vl.md",
+        "flowmatching_modules.md",
+        "model_architecture.md",
+        "evaluation_environments.md",
+        "policy_inference.md",
+        "embodiment_conditioned_mlp.md",
+        "training_engine.md",
+        "configuration.md",
+        "diffusion_transformer.md",
+        "data_pipeline.md",
+        "deployment.md",
+        "eagle_backbone.md",
+        "base_pipeline.md"
+    ]
+}

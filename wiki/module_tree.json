@@ -1,0 +1,235 @@
+{
+    "configuration": {
+        "path": "gr00t/configs",
+        "components": [
+            "gr00t.configs.base_config.Config",
+            "gr00t.configs.data.data_config.SingleDatasetConfig",
+            "gr00t.configs.data.data_config.DataConfig",
+            "gr00t.configs.finetune_config.FinetuneConfig",
+            "gr00t.configs.model.gr00t_n1d6.Gr00tN1d6Config",
+            "gr00t.configs.training.training_config.TrainingConfig"
+        ],
+        "children": {}
+    },
+    "data_pipeline": {
+        "path": "gr00t/data",
+        "components": [
+            "gr00t.data.collator.collators.BasicDataCollator",
+            "gr00t.data.dataset.factory.DatasetFactory",
+            "gr00t.data.dataset.lerobot_episode_loader.LeRobotEpisodeLoader",
+            "gr00t.data.dataset.sharded_mixture_dataset.ShardedMixtureDataset",
+            "gr00t.data.dataset.sharded_single_step_dataset.ShardedSingleStepDataset",
+            "gr00t.data.embodiment_tags.EmbodimentTag",
+            "gr00t.data.interfaces.ShardedDataset",
+            "gr00t.data.interfaces.BaseProcessor",
+            "gr00t.data.state_action.action_chunking.EndEffectorActionChunk",
+            "gr00t.data.state_action.action_chunking.ActionChunk",
+            "gr00t.data.state_action.action_chunking.JointActionChunk",
+            "gr00t.data.state_action.pose.EndEffectorPose",
+            "gr00t.data.state_action.pose.Pose",
+            "gr00t.data.state_action.pose.RotationType",
+            "gr00t.data.state_action.pose.JointPose",
+            "gr00t.data.state_action.pose.QuatOrder",
+            "gr00t.data.state_action.pose.EulerOrder",
+            "gr00t.data.state_action.state_action_processor.StateActionProcessor",
+            "gr00t.data.stats.RelativeActionLoader",
+            "gr00t.data.types.ActionFormat",
+            "gr00t.data.types.ActionType",
+            "gr00t.data.types.MessageType",
+            "gr00t.data.types.VLAStepData",
+            "gr00t.data.types.ActionConfig",
+            "gr00t.data.types.ModalityConfig",
+            "gr00t.data.types.ActionRepresentation"
+        ],
+        "children": {}
+    },
+    "model_architecture": {
+        "path": "gr00t/model",
+        "components": [
+            "gr00t.model.base.model_pipeline.ModelPipeline",
+            "gr00t.model.base.model_pipeline.BasicPipeline",
+            "gr00t.model.gr00t_n1d6.gr00t_n1d6.Gr00tN1d6",
+            "gr00t.model.gr00t_n1d6.gr00t_n1d6.Gr00tN1d6ActionHead",
+            "gr00t.model.gr00t_n1d6.image_augmentations.FractionalRandomCrop",
+            "gr00t.model.gr00t_n1d6.image_augmentations.LetterBoxTransform",
+            "gr00t.model.gr00t_n1d6.image_augmentations.FractionalCenterCrop",
+            "gr00t.model.gr00t_n1d6.processing_gr00t_n1d6.Gr00tN1d6DataCollator",
+            "gr00t.model.gr00t_n1d6.processing_gr00t_n1d6.Gr00tN1d6Processor",
+            "gr00t.model.gr00t_n1d6.setup.Gr00tN1d6Pipeline",
+            "gr00t.model.modules.dit.BasicTransformerBlock",
+            "gr00t.model.modules.dit.SelfAttentionTransformer",
+            "gr00t.model.modules.dit.AlternateVLDiT",
+            "gr00t.model.modules.dit.DiT",
+            "gr00t.model.modules.dit.TimestepEncoder",
+            "gr00t.model.modules.dit.AdaLayerNorm",
+            "gr00t.model.modules.eagle_backbone.EagleBackbone",
+            "gr00t.model.modules.embodiment_conditioned_mlp.MultiEmbodimentActionEncoder",
+            "gr00t.model.modules.embodiment_conditioned_mlp.SinusoidalPositionalEncoding",
+            "gr00t.model.modules.embodiment_conditioned_mlp.CategorySpecificMLP",
+            "gr00t.model.modules.embodiment_conditioned_mlp.SmallMLP",
+            "gr00t.model.modules.embodiment_conditioned_mlp.CategorySpecificLinear",
+            "gr00t.model.modules.flowmatching_modules.SmallMLP",
+            "gr00t.model.modules.flowmatching_modules.SinusoidalPositionalEncoding",
+            "gr00t.model.modules.flowmatching_modules.ActionEncoder",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.configuration_eagle3_vl.Eagle3_VLConfig",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.image_processing_eagle3_vl_fast.Eagle3_VLImageProcessorFast",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.image_processing_eagle3_vl_fast.Eagle3_VLFastImageProcessorKwargs",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_eagle3_vl.Eagle3_VLPreTrainedModel",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_eagle3_vl.Eagle3_VLForConditionalGeneration",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionEmbeddings",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Rope2DPosEmb",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionOutput",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2MLP",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionTransformer",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2Encoder",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2EncoderLayer",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionModel",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2PreTrainedModel",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2MultiheadAttentionPoolingHead",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionConfig",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2Attention",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.processing_eagle3_vl.Eagle3_VLProcessor",
+            "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.processing_eagle3_vl.Eagle3_VLProcessorKwargs"
+        ],
+        "children": {
+            "base_pipeline": {
+                "components": [
+                    "gr00t.model.base.model_pipeline.ModelPipeline",
+                    "gr00t.model.base.model_pipeline.BasicPipeline"
+                ],
+                "children": {}
+            },
+            "gr00t_n1d6_model": {
+                "components": [
+                    "gr00t.model.gr00t_n1d6.gr00t_n1d6.Gr00tN1d6",
+                    "gr00t.model.gr00t_n1d6.gr00t_n1d6.Gr00tN1d6ActionHead",
+                    "gr00t.model.gr00t_n1d6.image_augmentations.FractionalRandomCrop",
+                    "gr00t.model.gr00t_n1d6.image_augmentations.LetterBoxTransform",
+                    "gr00t.model.gr00t_n1d6.image_augmentations.FractionalCenterCrop",
+                    "gr00t.model.gr00t_n1d6.processing_gr00t_n1d6.Gr00tN1d6DataCollator",
+                    "gr00t.model.gr00t_n1d6.processing_gr00t_n1d6.Gr00tN1d6Processor",
+                    "gr00t.model.gr00t_n1d6.setup.Gr00tN1d6Pipeline"
+                ],
+                "children": {}
+            },
+            "diffusion_transformer": {
+                "components": [
+                    "gr00t.model.modules.dit.BasicTransformerBlock",
+                    "gr00t.model.modules.dit.SelfAttentionTransformer",
+                    "gr00t.model.modules.dit.AlternateVLDiT",
+                    "gr00t.model.modules.dit.DiT",
+                    "gr00t.model.modules.dit.TimestepEncoder",
+                    "gr00t.model.modules.dit.AdaLayerNorm"
+                ],
+                "children": {}
+            },
+            "eagle_backbone": {
+                "components": [
+                    "gr00t.model.modules.eagle_backbone.EagleBackbone"
+                ],
+                "children": {}
+            },
+            "embodiment_conditioned_mlp": {
+                "components": [
+                    "gr00t.model.modules.embodiment_conditioned_mlp.MultiEmbodimentActionEncoder",
+                    "gr00t.model.modules.embodiment_conditioned_mlp.SinusoidalPositionalEncoding",
+                    "gr00t.model.modules.embodiment_conditioned_mlp.CategorySpecificMLP",
+                    "gr00t.model.modules.embodiment_conditioned_mlp.SmallMLP",
+                    "gr00t.model.modules.embodiment_conditioned_mlp.CategorySpecificLinear"
+                ],
+                "children": {}
+            },
+            "flowmatching_modules": {
+                "components": [
+                    "gr00t.model.modules.flowmatching_modules.SmallMLP",
+                    "gr00t.model.modules.flowmatching_modules.SinusoidalPositionalEncoding",
+                    "gr00t.model.modules.flowmatching_modules.ActionEncoder"
+                ],
+                "children": {}
+            },
+            "nvidia_eagle_vl": {
+                "components": [
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.configuration_eagle3_vl.Eagle3_VLConfig",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.image_processing_eagle3_vl_fast.Eagle3_VLImageProcessorFast",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.image_processing_eagle3_vl_fast.Eagle3_VLFastImageProcessorKwargs",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_eagle3_vl.Eagle3_VLPreTrainedModel",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_eagle3_vl.Eagle3_VLForConditionalGeneration",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionEmbeddings",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Rope2DPosEmb",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionOutput",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2MLP",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionTransformer",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2Encoder",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2EncoderLayer",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionModel",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2PreTrainedModel",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2MultiheadAttentionPoolingHead",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2VisionConfig",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.modeling_siglip2.Siglip2Attention",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.processing_eagle3_vl.Eagle3_VLProcessor",
+                    "gr00t.model.modules.nvidia.Eagle-Block2A-2B-v2.processing_eagle3_vl.Eagle3_VLProcessorKwargs"
+                ],
+                "children": {}
+            }
+        }
+    },
+    "training_engine": {
+        "path": "gr00t/experiment",
+        "components": [
+            "gr00t.experiment.trainer.ProfCallback",
+            "gr00t.experiment.trainer._PrefetchIterator",
+            "gr00t.experiment.trainer.Gr00tTrainer",
+            "gr00t.experiment.trainer._BatchIterator",
+            "gr00t.experiment.utils.BestMetricCheckpointCallback",
+            "gr00t.experiment.utils.CheckpointFormatCallback"
+        ],
+        "children": {}
+    },
+    "policy_inference": {
+        "path": "gr00t/policy",
+        "components": [
+            "gr00t.policy.gr00t_policy.Gr00tPolicy",
+            "gr00t.policy.gr00t_policy.Gr00tSimPolicyWrapper",
+            "gr00t.policy.policy.PolicyWrapper",
+            "gr00t.policy.policy.BasePolicy",
+            "gr00t.policy.replay_policy.ReplayPolicy",
+            "gr00t.policy.server_client.MsgSerializer",
+            "gr00t.policy.server_client.PolicyClient",
+            "gr00t.policy.server_client.EndpointHandler",
+            "gr00t.policy.server_client.PolicyServer"
+        ],
+        "children": {}
+    },
+    "evaluation_environments": {
+        "path": "gr00t/eval",
+        "components": [
+            "gr00t.eval.open_loop_eval.ArgsConfig",
+            "gr00t.eval.real_robot.SO100.eval_so100.EvalConfig",
+            "gr00t.eval.real_robot.SO100.eval_so100.So100Adapter",
+            "gr00t.eval.rollout_policy.WrapperConfigs",
+            "gr00t.eval.rollout_policy.VideoConfig",
+            "gr00t.eval.rollout_policy.MultiStepConfig",
+            "gr00t.eval.run_gr00t_server.ServerConfig",
+            "gr00t.eval.sim.BEHAVIOR.behavior_env.RGBLowResWrapper",
+            "gr00t.eval.sim.BEHAVIOR.behavior_env.BEHAVIORGr00tEnv",
+            "gr00t.eval.sim.BEHAVIOR.og_teleop_cfg.ViewingMode",
+            "gr00t.eval.sim.LIBERO.libero_env.LiberoEnv",
+            "gr00t.eval.sim.SimplerEnv.simpler_env.WidowXBridgeEnv",
+            "gr00t.eval.sim.SimplerEnv.simpler_env.GoogleFractalEnv",
+            "gr00t.eval.sim.wrapper.multistep_wrapper.MultiStepWrapper",
+            "gr00t.eval.sim.wrapper.video_recording_wrapper.VideoRecordingWrapper",
+            "gr00t.eval.sim.wrapper.video_recording_wrapper.VideoRecorder"
+        ],
+        "children": {}
+    },
+    "deployment": {
+        "path": "scripts/deployment",
+        "components": [
+            "scripts.deployment.export_onnx_n1d6.DiTInputCapture",
+            "scripts.deployment.export_onnx_n1d6.DiTWrapper",
+            "scripts.deployment.standalone_inference_script.TensorRTDiTWrapper",
+            "scripts.deployment.standalone_inference_script.ArgsConfig"
+        ],
+        "children": {}
+    }
+}
